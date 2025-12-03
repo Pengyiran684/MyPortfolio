@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYPORTFOLIO</title>
+    
+    <!-- 引入外部样式表 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-text">INITIALIZING SYSTEM...</div>
+        <div class="intro-bar"></div>
+    </div>
+
+    <!-- 基础背景层 -->
+    <div id="base-bg"></div>
+    
+    <!-- 动态背景层 -->
+    <div id="bg-layer-1" class="dynamic-bg-layer"></div>
+    <div id="bg-layer-2" class="dynamic-bg-layer"></div>
+    
+    <!-- 粒子画布 -->
+    <canvas id="particle-canvas"></canvas>
+    
+    <!-- 噪点层 -->
+    <div class="noise-overlay"></div>
+
+    <nav class="navbar">
+         <a href="https://Pengyiran684.github.io" class="nav-item" target="_blank" rel="noopener noreferrer">Home</a>
+        <a href="https://github.com/pengyiran684" class="nav-item" target="_blank" rel="noopener noreferrer">Github</a>
+        <a href="pdf/Resume.pdf" class="nav-item" download="Resume.pdf">Resume</a>
+        <div class="nav-dropdown">
+            <a href="#" class="nav-item dropdown-toggle">Contact</a>
+            <div class="dropdown-menu" aria-hidden="true">
+                <a href="https://wpa.qq.com/msgrd?v=3&uin=1151381102&site=qq&menu=yes" class="nav-item dropdown-item" target="_blank" rel="noopener noreferrer">QQ</a>
+                <a href="tel:+86 15990789821" class="nav-item dropdown-item">Phone</a>
+                <a href="mailto:pengyiran684@gmail.com" class="nav-item dropdown-item">Email</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <div class="logo">PORTFOLIO<br><span>ART&TECHNOLOGY</span></div>
+        
+        <div class="profile-section">
+            <span class="profile-label">USER_INFO</span>
+            <div class="intro-name">Yiran Peng</div>
+            <div class="intro-text">
+                > Junior, Zhejiang University<br>
+                > Unskilled Artist<br>
+                <br>
+                Executing visual design algorithms...<br>
+                Rendering minimalist aesthetics...
+            </div>
+            <div class="contact-mini">pengyiran684@gmail.com</div>
+        </div>
+    </header>
+
+    <div class="scroll-indicator">
+        <!-- CSS content -->
+    </div>
+
+    <div class="wheel-container">
+        <div class="wheel-pivot" id="wheelPivot"></div>
+    </div>
+
+    <div class="modal" id="modal">
+    <div class="modal-content">
+        <div class="close-btn" onclick="closeModal()">[ CLOSE X ]</div>
+
+        <h2 id="modalTitle">PROJECT_TITLE</h2>
+
+        <!-- 图片画廊主区 -->
+        <div class="modal-gallery">
+            <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous image">◀</button>
+            
+            <div class="gallery-main">
+                <img id="modalMainImg" src="" alt="" class="gallery-img">
+                
+                <video id="modalMainVideo" class="gallery-img" controls style="display: none;"></video>
+                
+                <div id="galleryCounter" class="gallery-counter"></div>
+            </div>
+            
+            <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next image">▶</button>
+        </div>
+
+        <!-- 缩略图 -->
+        <div id="modalThumbs" class="modal-thumbs" aria-hidden="false"></div>
+
+        <!-- 描述与额外信息 -->
+        <div id="modalDesc" class="modal-desc" style="text-align:left; line-height:1.8; color:#ccc; font-size:14px; font-family:'Fira Code', monospace;"></div>
+        <p>> Status: <span id="modalStatus" style="color: var(--accent-color);">Loading...</span></p>
+        <p>> Stack: <span id="modalStack" style="color: #fff;">Loading...</span></p>
+    </div>
+</div>
+    </div>
+
+    <!-- 音乐播放器 -->
+    <div class="music-player" id="musicPlayer" aria-label="Music Player">
+        <div class="mp-left">
+            <button id="mpPrev" class="mp-btn" aria-label="Previous">⏮</button>
+            <button id="mpPlay" class="mp-btn" aria-label="Play">▶️</button>
+            <button id="mpNext" class="mp-btn" aria-label="Next">⏭</button>
+        </div>
+        <div class="mp-mid">
+            <div class="mp-title" id="mpTitle">No track</div>
+            <input type="range" id="mpProgress" class="mp-progress" min="0" max="100" value="0" aria-label="Progress">
+        </div>
+        <div class="mp-right">
+            <input type="range" id="mpVolume" class="mp-vol" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+        </div>
+        <audio id="mpAudio" preload="metadata"></audio>
+    </div>
+
+        <!-- 引入外部脚本 -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
